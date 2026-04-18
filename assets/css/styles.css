@@ -1,0 +1,23 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1D3F6E;
+  --amber:  #F5A623;
+  --bg:     #F8F9FB;
+  --dark:   #1A1A2E;
+  --muted:  #6B7280;
+  --green:  #22C55E;
+  --white:  #FFFFFF;
+  --card:   #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+
