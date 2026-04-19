@@ -245,4 +245,31 @@ h1 em { font-style: normal; color: var(--amber); }
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .step-content h4 { font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
-.step-content p { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+.step-content p { color: var(--muted); font-size: .92rem; line-height: 1.6; }/* ── FOOTER ── */
+footer {
+  background: var(--dark); color: rgba(255,255,255,.5);
+  text-align: center; padding: 2rem 6%;
+  font-size: .85rem;
+}
+footer strong { color: var(--amber); }
+
+/* Logo Container*/
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'Poppins', sans-serif;
+}
