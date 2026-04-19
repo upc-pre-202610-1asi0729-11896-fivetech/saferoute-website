@@ -20,4 +20,14 @@ body {
   overflow-x: hidden;
 }
 
-
+/* ── HOW IT WORKS ── */
+.steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; max-width: 680px; }
+.step { display: flex; gap: 1.5rem; align-items: flex-start; }
+.step-num {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--navy); color: var(--amber);
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-content h4 { font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+.step-content p { color: var(--muted); font-size: .92rem; line-height: 1.6; }
