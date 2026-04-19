@@ -20,4 +20,31 @@ body {
   overflow-x: hidden;
 }
 
+/* ── FOOTER ── */
+footer {
+  background: var(--dark); color: rgba(255,255,255,.5);
+  text-align: center; padding: 2rem 6%;
+  font-size: .85rem;
+}
+footer strong { color: var(--amber); }
 
+/* Logo Container*/
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'Poppins', sans-serif;
+}
