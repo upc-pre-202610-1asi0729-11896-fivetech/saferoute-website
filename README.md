@@ -25,7 +25,7 @@ The SafeRoute Project enables the digitalization of private school transport ope
 ![Parte 7](assets/images/p7.png)
 
 ### Links
-- Solution URL : https://fivetech-nrc11896.github.io/saferoute-landing-page/
+- Solution URL : https://fivetech-nrc11896.github.io/saferoute-website/
 
 ### Build with
 - Semantic HTML5 markup
