@@ -1,6 +1,6 @@
 (
     async () => {
-  /* ── 1. Load translations ── */
+  /* ── Load translations ── */
   let translations = {};
   try {
     const res = await fetch('assets/i18n/translations.json');
@@ -10,11 +10,11 @@
     return;
   }
 
-  /* ── 2. Helpers ── */
+  /* ── Helpers ── */
   const get = (obj, path) =>
     path.split('.').reduce((o, k) => (o != null ? o[k] : undefined), obj);
 
-  /* ── 3. Render dynamic lists ── */
+  /* ── Render dynamic lists ── */
   function renderFeatures(lang) {
     const cards = translations[lang].features.cards;
     document.getElementById('features-grid').innerHTML = cards.map(c => `
@@ -60,7 +60,7 @@
       </div>`).join('');
   }
 
-  /* ── 4. Apply translations to static elements ── */
+  /* ── Apply translations to static elements ── */
   function applyTranslations(lang) {
     document.documentElement.lang = lang;
     document.title = lang === 'es'
@@ -93,7 +93,7 @@
     });
   }
 
-  /* ── 5. Language switcher ── */
+  /* ── Language switcher ── */
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
@@ -102,7 +102,7 @@
     });
   });
 
-  /* ── 6. Init ── */
+  /* ── Init ── */
   const savedLang = localStorage.getItem('sr-lang') || 'es';
   applyTranslations(savedLang);
 })
