@@ -103,7 +103,7 @@
   });
 
   /* ── Init ── */
-  const savedLang = localStorage.getItem('sr-lang') || 'es';
+  const savedLang = localStorage.getItem('sr-lang') || 'en';
   applyTranslations(savedLang);
 })
 ();
