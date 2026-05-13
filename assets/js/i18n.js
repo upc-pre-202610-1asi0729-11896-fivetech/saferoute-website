@@ -47,7 +47,7 @@
         <ul class="plan-features">
           ${c.features.map(f => `<li>${f}</li>`).join('')}
         </ul>
-        <a href="http://localhost:4200/iam/sign-up?plan=${encodeURIComponent(c.name)}&price=${encodeURIComponent(c.price)}" class="btn-plan ${i === featuredIdx ? 'btn-plan-primary' : 'btn-plan-outline'}">${d.btn_hire}</a>
+        <a href="https://mango-sea-02b91e80f.7.azurestaticapps.net/iam/sign-up?plan=${encodeURIComponent(c.name)}&price=${encodeURIComponent(c.price)}" class="btn-plan ${i === featuredIdx ? 'btn-plan-primary' : 'btn-plan-outline'}">${d.btn_hire}</a>
       </div>`).join('');
   }
 
