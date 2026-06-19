@@ -1,6 +1,6 @@
 (
     async () => {
-  /* ── 1. Load translations ── */
+  /* ── Load translations ── */
   let translations = {};
   try {
     const res = await fetch('assets/i18n/translations.json');
@@ -10,11 +10,11 @@
     return;
   }
 
-  /* ── 2. Helpers ── */
+  /* ── Helpers ── */
   const get = (obj, path) =>
     path.split('.').reduce((o, k) => (o != null ? o[k] : undefined), obj);
 
-  /* ── 3. Render dynamic lists ── */
+  /* ── Render dynamic lists ── */
   function renderFeatures(lang) {
     const cards = translations[lang].features.cards;
     document.getElementById('features-grid').innerHTML = cards.map(c => `
@@ -47,7 +47,7 @@
         <ul class="plan-features">
           ${c.features.map(f => `<li>${f}</li>`).join('')}
         </ul>
-        <a href="#cta" class="btn-plan ${i === featuredIdx ? 'btn-plan-primary' : 'btn-plan-outline'}">${d.btn_hire}</a>
+        <a href="http://happy-desert-05eb4a80f.7.azurestaticapps.net/iam/sign-up?plan=${encodeURIComponent(c.name)}&price=${encodeURIComponent(c.price)}" class="btn-plan ${i === featuredIdx ? 'btn-plan-primary' : 'btn-plan-outline'}">${d.btn_hire}</a>
       </div>`).join('');
   }
 
@@ -60,7 +60,7 @@
       </div>`).join('');
   }
 
-  /* ── 4. Apply translations to static elements ── */
+  /* ── Apply translations to static elements ── */
   function applyTranslations(lang) {
     document.documentElement.lang = lang;
     document.title = lang === 'es'
@@ -93,7 +93,7 @@
     });
   }
 
-  /* ── 5. Language switcher ── */
+  /* ── Language switcher ── */
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
@@ -102,8 +102,26 @@
     });
   });
 
-  /* ── 6. Init ── */
-  const savedLang = localStorage.getItem('sr-lang') || 'es';
+  /* ── About videos: data-yt is the single source of truth.
+        Fills the thumbnail, then swaps in the YouTube player on click. ── */
+  document.querySelectorAll('.about-frame').forEach(frame => {
+    const id = frame.dataset.yt;
+    const ready = id && !id.startsWith('VIDEO_ID'); // false while still a placeholder
+    const thumb = frame.querySelector('.about-thumb');
+
+    if (ready && thumb) thumb.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
+    frame.addEventListener('click', () => {
+      if (!ready) return;
+      frame.innerHTML =
+        `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0"
+                 title="SafeRoute video" allowfullscreen
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+    });
+  });
+
+  /* ── Init ── */
+  const savedLang = localStorage.getItem('sr-lang') || 'en';
   applyTranslations(savedLang);
 })
 ();
